@@ -45,7 +45,7 @@ resource "aws_iam_policy" "lambda" {
         "logs:PutLogEvents",
         "ec2:DescribeImages",
         "ec2:DescribeRegions",
-        "ec2:DeregisterImages"
+        "ec2:DeregisterImage"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -74,7 +74,7 @@ resource "aws_lambda_function" "lambda" {
     variables = {
       AMI_TAG           = var.ami_tag
       AWS_REGIONS       = join(",", var.aws_regions)
-      MAX_DAYS          = join(",", var.aws_regions)
+      MAX_DAYS          = var.max_days
     }
   }
 }
