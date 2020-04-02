@@ -15,7 +15,7 @@ data "archive_file" "lambda" {
 }
 
 resource "aws_iam_role" "lambda" {
-  name = "enable-vpc-flow-logs"
+  name = local.lambda_name
 
   assume_role_policy = <<EOF
 {
@@ -58,20 +58,20 @@ resource "aws_cloudwatch_event_rule" "lambda" {
 
   event_pattern = <<PATTERN
 {
-  "source": [
-    "aws.cloudtrail"
-  ],
-  "detail-type": [
-    "AWS API Call via CloudTrail"
-  ],
-  "detail": {
-    "eventSource": [
-      "cloudtrail.amazonaws.com"
+    "source": [
+        "aws.ec2"
     ],
-    "eventName": [
-      "CreateVpc"
-    ]
-  }
+    "detail-type": [
+        "AWS API Call via CloudTrail"
+    ],
+    "detail": {
+        "eventSource": [
+            "ec2.amazonaws.com"
+        ],
+        "eventName": [
+            "CreateVpc"
+        ]
+    }
 }
 PATTERN
 }
