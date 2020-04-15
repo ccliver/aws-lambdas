@@ -17,7 +17,7 @@ variable "aws_regions" {
 }
 
 variable "ec2_desired_state" {
-  descrption = "The desired instance state (running|stopped)."
+  description = "The desired instance state (running|stopped)."
   type = string
   default = "stopped"
 }
