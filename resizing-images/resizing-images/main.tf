@@ -40,15 +40,18 @@ resource "aws_iam_policy" "lambda" {
   "Statement": [
     {
       "Sid": "GetImages",
-      "Action": "s3:GetObject",
+      "Action": [
+        "s3:GetObject",
+        "s3:HeadObject"
+      ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${aws_s3_bucket.source.id}"
+      "Resource": "arn:aws:s3:::${aws_s3_bucket.source.id}/*"
     },
     {
       "Sid": "PutImages",
       "Action": "s3:PutObject",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${aws_s3_bucket.thumbnails.id}"
+      "Resource": "arn:aws:s3:::${aws_s3_bucket.thumbnails.id}/*"
     }
   ]
 }
@@ -81,8 +84,16 @@ resource "aws_lambda_function" "lambda" {
   role             = aws_iam_role.lambda.arn
   handler          = "${replace(local.lambda_file_name, ".py", "")}.lambda_handler"
   source_code_hash = data.archive_file.lambda.output_base64sha256
-  runtime          = "python3.8"
+  runtime          = "python3.6" # The Pillow library wouldn't load in the 3.7 or 3.8 runtime
   timeout          = 60
+
+  environment {
+    variables = {
+      THUMBNAIL_WIDTH   = var.thumbnail_width
+      THUMBNAIL_HEIGHT  = var.thumbnail_height
+      THUMBNAIL_BUCKET  = aws_s3_bucket.thumbnails.id
+    }
+  }
 }
 
 resource "random_uuid" "source" {}

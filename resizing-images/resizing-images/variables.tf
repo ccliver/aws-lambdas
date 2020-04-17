@@ -12,3 +12,13 @@ variable "thumbnail_bucket_prefix" {
   description = "Descriptive prefix to use for the thumbnail bucket name"
   default     = "thumbnail-images"
 }
+
+variable "thumbnail_width" {
+  description = "The width of thumbnail images"
+  default     = 128
+}
+
+variable "thumbnail_height" {
+  description = "The height of thumbnail images"
+  default     = 128
+}
