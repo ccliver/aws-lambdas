@@ -18,6 +18,6 @@ def lambda_handler(event, context):
             im.thumbnail((width, height))
             im.save('/tmp/' + outfile, im.format)
     except IOError as e:
-        print("Error creating thumbnail for", img, e)
+        print("Error creating thumbnail for", key, e)
 
     s3.upload_file('/tmp/' + outfile, thumbnail_bucket, outfile)
