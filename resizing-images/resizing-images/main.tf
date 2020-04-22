@@ -32,7 +32,7 @@ EOF
 resource "aws_iam_policy" "lambda" {
   name        = var.lambda_name
   path        = "/"
-  description = "Grant DynamoDB CreateBackup for ${var.lambda_name}"
+  description = "Grant S3 access for ${var.lambda_name}"
 
   policy = <<EOF
 {
