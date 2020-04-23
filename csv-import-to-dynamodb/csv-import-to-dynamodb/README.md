@@ -30,4 +30,3 @@ module "csv-import-to-dynamodb" {
 ## Outputs
 
 No output.
-:q
