@@ -3,7 +3,7 @@
 The Makefile uses Docker as a Terraform runner for a given project:
 
 ```bash
-TARGET=ec2-scheduled-stop-start
+PROJECT=ec2-scheduled-stop-start
 make init
 make plan
 make apply
