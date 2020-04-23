@@ -40,6 +40,3 @@ def lambda_handler(event, context):
     s3 = boto3.client('s3')
     s3.download_file(source_bucket, key, '/tmp/' + key)
     import_into_dynamodb('/tmp/' + key)
-
-if __name__ == '__main__':
-    import_into_dynamodb('/Users/carl/Desktop/aws-lambdas/csv-import-to-dynamodb/movies.csv')
