@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "ec2-scheduled-stop" {
-  source = "./ec2-scheduled-stop-start"
+  source = "../modules/ec2-scheduled-stop-start"
 
   lambda_name       = "ec2-scheduled-stop"
   region            = "us-east-1"
@@ -14,7 +14,7 @@ module "ec2-scheduled-stop" {
 }
 
 module "ec2-scheduled-start" {
-  source = "./ec2-scheduled-stop-start"
+  source = "../modules/ec2-scheduled-stop-start"
 
   lambda_name       = "ec2-scheduled-start"
   region            = "us-east-1"

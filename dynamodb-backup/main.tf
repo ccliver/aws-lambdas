@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "dynamodb_backup" {
-  source = "./dynamodb-backup"
+  source = "../modules/dynamodb-backup"
 
   lambda_name     = "dynamodb-backup"
   schedule_cron   = "0 1 * * ? *"

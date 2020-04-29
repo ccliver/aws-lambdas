@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "csv-import-to-dynamodb" {
-  source = "./csv-import-to-dynamodb"
+  source = "../modules/csv-import-to-dynamodb"
 
   source_bucket_prefix = "incoming-csv-files"
 }

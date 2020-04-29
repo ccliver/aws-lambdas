@@ -1,8 +1,9 @@
 .DEFAULT_GOAL := help
 
 TERRAFORM_VERSION := 0.12.24
-DOCKER_OPTIONS := -v ${PWD}/${PROJECT}:/terraform \
--w /terraform \
+DOCKER_OPTIONS := -v ${PWD}/${PROJECT}:/terraform/projects \
+-v ${PWD}/modules:/terraform/modules \
+-w /terraform/projects \
 -it \
 -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
 -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}

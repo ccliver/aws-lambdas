@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "deregister-old-amis" {
-  source = "./deregister-old-amis"
+  source = "../modules/deregister-old-amis"
 
   lambda_name       = "deregister-old-amis"
   region            = "us-east-1"

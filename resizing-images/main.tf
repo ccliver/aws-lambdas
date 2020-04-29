@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "resizing-images" {
-  source = "./resizing-images"
+  source = "../modules/resizing-images"
 
   source_bucket_prefix    = "full-size-images"
   thumbnail_bucket_prefix = "thumbnail-images"
