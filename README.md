@@ -1,4 +1,4 @@
-## Sample Lambda code for various tasks in AWS.
+## Sample Lambda code for various tasks in AWS
 All Lambdas are deployed using Terraform and can be built with the Docker runner using Make targets. Most lambdas are implemented as Terraform modules in the `modules` folder and have usage/inputs/outputs documented in READMEs.
 
 ## Lambdas
