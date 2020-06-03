@@ -10,8 +10,9 @@ All Lambdas are deployed using Terraform and can be built with the Docker runner
 | dynamodb-backup | Backup a DynamoDB table on a schedule |
 | resizing-images | Create thumbnails of images uploaded to an S3 bucket |
 | csv-import-to-dynamodb | Import CSV files uploaded to an S3 bucket into a DynamoDB table |
-| transcribe-audio | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket|
-| detect-faces | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket|
+| transcribe-audio | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket |
+| detect-faces | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket |
+| trigger-lambda-from-sqs | Example of triggering Lambda from an SQS queue |
   
 ## Usage
 ```bash
