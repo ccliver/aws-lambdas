@@ -11,16 +11,19 @@ DOCKER_OPTIONS := -v ${PWD}/${PROJECT}:/terraform/projects \
 init: ## Initialize the Terraform state: PROJECT=<projectSubDir> make init
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} init -upgrade=true
 
-plan: ## Run a Terraform plan: PROJECT=<projectSubDir> make apply
+plan: ## Run a Terraform plan: PROJECT=<projectSubDir> make plan
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} plan
 
 apply: ## Create the resources with Terraform: PROJECT=<projectSubDir> make apply
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} apply
 
-destroy: ## Destroy the AWS resources with Terraform: PROJECT=<projectSubDir> make apply
+destroy: ## Destroy the AWS resources with Terraform: PROJECT=<projectSubDir> make destroy
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} destroy
 
-adhoc: ## Run an ad hoc Terraform command: COMMAND=version PROJECT=<projectSubDir> make apply
+output: ## Display outputs from the Terraform state: PROJECT=<projectSubDir> make output
+	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} output
+
+adhoc: ## Run an ad hoc Terraform command: COMMAND=version PROJECT=<projectSubDir> make adhoc
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} ${COMMAND}
 
 help:
