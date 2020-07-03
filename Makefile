@@ -15,7 +15,7 @@ plan: ## Run a Terraform plan: PROJECT=<projectSubDir> make plan
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} plan
 
 apply: ## Create the resources with Terraform: PROJECT=<projectSubDir> make apply
-	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} apply
+	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} apply -auto-approve
 
 destroy: ## Destroy the AWS resources with Terraform: PROJECT=<projectSubDir> make destroy
 	docker run ${DOCKER_OPTIONS} hashicorp/terraform:${TERRAFORM_VERSION} destroy

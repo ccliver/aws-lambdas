@@ -13,6 +13,7 @@ All Lambdas are deployed using Terraform and can be built with the Docker runner
 | transcribe-audio | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket |
 | detect-faces | Transcribe audio files uploaded to an S3 bucket with Amazon Transcribe. A second lambda parses out the transcription text and writes it to another S3 bucket |
 | trigger-lambda-from-sqs | Example of triggering Lambda from an SQS queue |
+| respond-to-invalid-ssh-logins | Send bastion SSH logs to cloudwatch and trigger a lambda to stop the instance on too many invalid SSH login attempts |
   
 ## Usage
 ```bash
