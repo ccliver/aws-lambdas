@@ -166,7 +166,7 @@ resource "aws_iam_role" "lambda" {
 EOF
 }
 
-resource "aws_iam_policy_attachment" "transcribe_lambda_execution" {
+resource "aws_iam_policy_attachment" "lambda_execution" {
   name       = "AWSLambdaBasicExecutionRole"
   roles      = ["${aws_iam_role.lambda.name}"]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
